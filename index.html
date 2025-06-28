@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Inventory Management System</title>
+
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+</head>
+<body id="LoginBody">
+    <div class="container">
+        <div class="loginHeader">
+            <h1>IMS</h1>
+            <p>Inventory Management System</p>
+        </div>
+        <div class="LoginBody">
+            <form onsubmit="return handleLogin(event)">
+                <div class="LoginInputContainer">
+                    <label for="username">Username</label>
+                    <input id="username" placeholder="username" type="text">
+                </div>
+                <div class="LoginInputContainer">
+                    <label for="password">Password</label>
+                    <input id="password" placeholder="password" type="password">
+                </div>
+                <div class="loginbuttoncontainer">
+                    <button type="submit">Login</button>
+                </div>
+                <div class="loginbuttoncontainer" style="margin-top: 20px;">
+                    <button type="button" onclick="window.location.href='register.html'">Register</button>
+                </div>
+            </form>
+        </div>
+        <div class="user-name" id="sidebarUsername"></div>
+    </div>
+    <script>
+        async function handleLogin(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            // Allow default admin login
+            if (username.toLowerCase() === 'admin' && password === 'admin123') {
+                localStorage.setItem('userRole', 'admin');
+                window.location.href = './Suppliers/indexAddSupplier.html';
+                return false;
+            }
+
+            // Check against registered users in backend
+            try {
+                const response = await fetch('http://localhost:3000/api/users', {
+                    headers: { 'x-user-role': 'admin' } // Use admin to fetch user list
+                });
+                if (!response.ok) throw new Error('Unable to verify user');
+                const users = await response.json();
+                const user = users.find(u => u.username === username && u.password === password);
+                if (user) {
+                    localStorage.setItem('userRole', user.role.toLowerCase());
+                    window.location.href = './Suppliers/indexAddSupplier.html';
+                } else {
+                    alert('Invalid username or password.');
+                }
+            } catch (err) {
+                alert('Login failed: ' + err.message);
+            }
+            return false;
+        }
+
+        // Show the logged-in username in the sidebar
+        document.addEventListener("DOMContentLoaded", function () {
+            const username = localStorage.getItem("username") || "User";
+            document.getElementById("sidebarUsername").textContent = username.toUpperCase();
+        });
+    </script>
+</body>
+</html>

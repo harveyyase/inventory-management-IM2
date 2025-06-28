@@ -1,0 +1,76 @@
+
+  .main {
+    flex-grow: 1;
+    padding: 20px;
+  }
+ 
+  .topnav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+ 
+  .topnav h1 {
+    margin: 0;
+  }
+ 
+ 
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    color: white;
+    font-weight: bold;
+  }
+ 
+  table, th, td {
+    border: solid #306630;
+    background-color: #54b454;
+
+  }
+ 
+  th, td {
+    padding: 10px;
+    text-align: left;
+  }
+ 
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+  }
+ 
+  .modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    width: 300px;
+    border-radius: 4px;
+  }
+ 
+  .close {
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
+  }
+ 
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+ 
+  form label {
+    margin-top: 10px;
+  }
+ 
+  form input, form select {
+    padding: 5px;
+    margin-top: 5px;
+  }
+ 
+

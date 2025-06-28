@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management System</title>
+    <link rel="stylesheet" href="indexAddSupplier.css">
+    <link rel="stylesheet" href="../Products/products.css">
+    <link rel="stylesheet" href="../Users/users.css">
+    <link rel="stylesheet" href="../dashboard/dashboard.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../Reports/reports.css">
+
+
+
+</head>
+<body>
+
+<!-- Sidebar Navigation -->
+<div class="sidebar">
+    <div class="sidebar-header">
+        <div class="logo">IMS</div>
+    </div>
+   
+    <div class="user-profile">
+        <div class="user-avatar">
+            <img src="/api/placeholder/80/80" alt="User Avatar">
+        </div>
+        <div class="user-name" id="sidebarUsername"></div>
+    </div>
+   
+    <ul class="sidebar-menu">
+        <!-- Dashboard Menu Item -->
+        <li class="menu-item">
+            <a href="#" class="menu-link" onclick="toggleSection('dashboardSection', 'supplierSection', 'purchaseOrderSection', 'userSection'); closeAllSubmenus();">
+                <i>📊</i> DASHBOARD
+            </a>
+        </li>
+       
+        <!-- Reports Menu Item -->
+        <li class="menu-item">
+            <a href="#" class="menu-link" onclick="toggleSection('reportsSection', 'dashboardSection', 'supplierSection', 'purchaseOrderSection', 'userSection'); ">
+                <i>📄</i> REPORTS
+            </a>
+        </li>
+            
+
+       
+        <!-- Supplier Menu Item -->
+        <li class="menu-item">
+            <a href="#" class="menu-link" onclick="toggleSubmenu(this); toggleSection('supplierSection', 'purchaseOrderSection', 'userSection')">
+                <i>🏭</i> SUPPLIER
+                <span class="arrow">▸</span>
+            </a>
+            <div class="submenu">
+                <a href="#" class="submenu-item" onclick="showSupplierList(event)">
+                    <i>👁️</i> View Supplier
+                </a>
+                <a href="#" class="submenu-item" onclick="showAddSupplierForm(event)">
+                    <i>➕</i> Add Supplier
+                </a>
+            </div>
+        </li>
+       
+        <!-- Purchase Order Menu Item -->
+        <li class="menu-item">
+            <a href="#" class="menu-link" onclick="toggleSubmenu(this); toggleSection('purchaseOrderSection', 'supplierSection', 'userSection')">
+                <i>🛒</i> PURCHASE ORDER
+                <span class="arrow">▸</span>
+            </a>
+            <div class="submenu">
+                <a href="#" class="submenu-item" onclick="showCreateOrder(event)">
+                    <i>➕</i> Create Order
+                </a>
+                <a href="#" class="submenu-item" onclick="showOrderList(event)">
+                    <i>👁️</i> View Orders
+                </a>
+            </div>
+        </li>
+       
+        <!-- User Menu Item -->
+        <li class="menu-item">
+            <a href="#" class="menu-link" onclick="toggleSubmenu(this); toggleSection('userSection', 'supplierSection', 'purchaseOrderSection')">
+                <i>👤</i> USER
+                <span class="arrow">▸</span>
+            </a>
+            <div class="submenu">
+                <a href="#" class="submenu-item" onclick="showUserList(event)">
+                    <i>👁️</i> View Users
+                </a>
+                <a href="#" class="submenu-item" onclick="openModal(event)">
+                    <i>➕</i> Add User
+                </a>
+            </div>
+        </li>
+    </ul>
+</div>
+
+
+<!-- Main Content Area -->
+<div class="main-content">
+    <div class="top-bar">
+        <button id="menu-toggle">☰</button>
+        <div>
+            
+            <button class="btn">Log-out</button>
+        </div>
+    </div>
+   <div class="sidebar">
+    <div class="sidebar-header">
+        <div class="logo">IMS</div>
+    </div>
+   
+    <div class="user-profile">
+        <div class="user-avatar">
+            <img src="/api/placeholder/80/80" alt="User Avatar">
+        </div>
+        <div class="user-name" id="sidebarUsername"></div>
+    </div>
+   
+    <ul class="sidebar-menu">
+        <!-- Dashboard Menu Item -->
+        <li class="menu-item">
+            <a href="#" class="menu-link" onclick="toggleSection('dashboardSection', 'supplierSection', 'purchaseOrderSection', 'userSection'); closeAllSubmenus();">
+                <i>📊</i> DASHBOARD
+            </a>
+        </li>
+       
+        <!-- Reports Menu Item -->
+        <li class="menu-item">
+            <a href="#" class="menu-link" onclick="toggleSection('reportsSection', 'dashboardSection', 'supplierSection', 'purchaseOrderSection', 'userSection'); ">
+                <i>📄</i> REPORTS
+            </a>
+        </li>
+       
+        <!-- Product Menu Item -->
+        <li class="menu-item">
+            <a href="#" class="menu-link" onclick="toggleSubmenu(this); toggleSection('productSection', 'supplierSection', 'purchaseOrderSection', 'userSection', 'dashboardSection')">
+                <i>📦</i> PRODUCT
+                <span class="arrow">▸</span>
+            </a>
+            <div class="submenu">
+                <a href="#" class="submenu-item" onclick="showProductList(event)">
+                    <i>👁️</i> View Product
+                </a>
+                <a href="#" class="submenu-item" onclick="showAddProductForm(event)">
+                    <i>➕</i> Add Product
+                </a>
+            </div>
+        </li>
+       
+        <!-- Supplier Menu Item -->
+        <li class="menu-item">
+            <a href="#" class="menu-link" onclick="toggleSubmenu(this); toggleSection('supplierSection', 'purchaseOrderSection', 'userSection', 'dashboardSection'); ">
+                <i>🏭</i> SUPPLIER
+                <span class="arrow">▸</span>
+            </a>
+            <div class="submenu">
+                <a href="#" class="submenu-item" onclick="showSupplierList(event)">
+                    <i>👁️</i> View Supplier
+                </a>
+                <a href="#" class="submenu-item" onclick="showAddSupplierForm(event)">
+                    <i>➕</i> Add Supplier
+                </a>
+            </div>
+        </li>
+       
+        <!-- Purchase Order Menu Item -->
+        <li class="menu-item">
+            <a href="#" class="menu-link" onclick="toggleSubmenu(this); toggleSection('purchaseOrderSection', 'supplierSection', 'userSection', 'dashboardSection')">
+                <i>🛒</i> PURCHASE ORDER
+                <span class="arrow">▸</span>
+            </a>
+            <div class="submenu">
+                <a href="#" class="submenu-item" onclick="showCreateOrder(event)">
+                    <i>➕</i> Create Order
+                </a>
+                <a href="#" class="submenu-item" onclick="showOrderList(event)">
+                    <i>👁️</i> View Orders
+                </a>
+            </div>
+        </li>
+       
+        <!-- User Menu Item -->
+        <li class="menu-item">
+            <a href="#" class="menu-link" onclick="toggleSubmenu(this); toggleSection('userSection', 'supplierSection', 'purchaseOrderSection', 'dashboardSection')">
+                <i>👤</i> USER
+                <span class="arrow">▸</span>
+            </a>
+            <div class="submenu">
+                <a href="#" class="submenu-item" onclick="showUserList(event)">
+                    <i>👁️</i> View Users
+                </a>
+                <a href="#" class="submenu-item" onclick="openModal(event)">
+                    <i>➕</i> Add User
+                </a>
+            </div>
+        </li>
+    </ul>
+</div>
+
+
+    
+    <!-- Dashboard Section -->
+    <div id="dashboardSection" class="hidden">
+        <div class="dashboard">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">Purchase Orders By Status</div>
+                    <div class="card-options">≡</div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="purchaseOrdersChart"></canvas>
+                </div>
+                <div class="chart-footer">Here is the breakdown of the purchase orders by status.</div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">Product Count Assigned To Supplier</div>
+                    <div class="card-options">≡</div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="productCountChart"></canvas>
+                </div>
+                <div class="chart-footer">Here is the breakdown of products assigned to suppliers.</div>
+            </div>
+            
+            <div class="card" style="grid-column: 1 / span 2;">
+                <div class="card-header">
+                    <div class="card-title">Delivery History Per Day</div>
+                    <div class="card-options">≡</div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="deliveryHistoryChart"></canvas>
+                </div>
+                <div class="chart-footer">Daily product delivery history.</div>
+            </div>
+        </div>
+    </div>
+   
+       
+    <!-- Purchase Order Section -->
+    <div id="purchaseOrderSection">
+        <!-- Purchase Order List View -->
+        <div id="orderListView" class="content-container">
+            <h2 class="content-title">List of Purchase Orders</h2>
+           
+            <table id="orderTable">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>BATCH #</th>
+                        <th>PRODUCTS</th>
+                        <th>SUPPLIER</th>
+                        <th>QUANTITY ORDERED</th>
+                        <th>QUANTITY RECEIVED</th>
+                        <th>STATUS</th>
+                        <th>ORDERED BY</th>
+                        <th>CREATED DATE</th>
+                        <th>ACTION</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Purchase order data will be added here by JavaScript -->
+                </tbody>
+            </table>
+           
+            <div class="text-right">
+                <span id="orderCount">0 PURCHASE ORDERS</span>
+            </div>
+        </div>
+       
+        <!-- Create Order Form -->
+        <div id="createOrderForm" class="content-container hidden">
+            <h2 class="content-title">Create Purchase Order</h2>
+           
+            <form id="orderForm" class="order-form">
+                <div class="order-header">
+                    <div class="order-title">
+                        <i>🛒</i> New Purchase Order
+                    </div>
+                    <div>
+                        <span>Order Date: </span>
+                        <span id="currentDate">May 8, 2025</span>
+                    </div>
+                </div>
+               
+                <!-- Product Row -->
+                <div class="product-row">
+                    <div class="supplier-select">
+                        <label for="supplier1">Supplier</label>
+                        <select id="supplier1">
+                            <option value="">Select Supplier</option>
+                            <!-- Suppliers will be populated by JavaScript -->
+                        </select>
+                    </div>
+                    <div class="product-select">
+                        <label for="product1">Product</label>
+                        <select id="product1">
+                            <option value="">Select Product</option>
+                            <!-- Products will be populated based on selected supplier -->
+                        </select>
+                    </div>
+                    <div class="quantity-input">
+                        <label for="quantity1">Quantity</label>
+                        <input type="number" id="quantity1" min="1">
+                    </div>
+                    <button type="button" class="remove-btn">Remove</button>
+                </div>
+                
+                <button type="button" class="add-product-btn">Add Another Product</button>
+                
+                <div class="text-right">
+                    <button type="button" class="btn btn-danger" onclick="cancelForm()">Cancel</button>
+                    <button type="submit" class="btn btn-primary" onclick="submitOrder(event)">Submit Order</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Supplier Section -->
+    <div id="supplierSection" class="hidden">
+        <!-- Supplier List View -->
+        <div id="supplierListView" class="content-container">
+            <h2 class="content-title">List of Suppliers</h2>
+            
+            <table id="supplierTable">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>SUPPLIER NAME</th>
+                        <th>SUPPLIER LOCATION</th>
+                        <th>CONTACT DETAILS</th>
+                        <th>PRODUCTS</th>
+                        <th>CREATED BY</th>
+                        <th>CREATED AT</th>
+                        <th>UPDATED AT</th>
+                        <th>ACTION</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Supplier data will be added here by JavaScript -->
+                </tbody>
+            </table>
+            
+            <div class="text-right">
+                <span id="supplierCount">0 SUPPLIERS</span>
+            </div>
+        </div>
+
+        <!-- NEW: Product Section -->
+    <div id="productSection" class="hidden">
+        <!-- Product List View -->
+        <div id="productListView" class="content-container">
+            <h2 class="content-title">List of Products</h2>
+            <table id="productTable">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>PRODUCT NAME</th>
+                        <th>CATEGORY</th>
+                        <th>SUPPLIER</th>
+                        <th>QUANTITY</th>
+                        <th>CREATED BY</th>
+                        <th>CREATED AT</th>
+                        <th>ACTION</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Product data will be inserted here -->
+                </tbody>
+            </table>
+            <div class="text-right">
+                <span id="productCount">0 PRODUCTS</span>
+            </div>
+        </div>
+
+        <!-- Add Product Form -->
+        <div id="addProductForm" class="content-container hidden">
+            <h2 class="content-title">Add New Product</h2>
+            <form id="productForm">
+                <div class="form-group">
+                    <label for="productName">Product Name</label>
+                    <input type="text" id="productName" required>
+                </div>
+                <div class="form-group">
+                    <label for="productCategory">Category</label>
+                    <input type="text" id="productCategory" required>
+                </div>
+                <div class="form-group">
+                    <label for="productSupplier">Supplier</label>
+                    <input type="text" id="productSupplier" required>
+                </div>
+                <div class="form-group">
+                    <label for="productQuantity">Quantity</label>
+                    <input type="number" id="productQuantity" min="0" required>
+                </div>
+                <div class="text-right">
+                    <button type="button" class="btn btn-danger" onclick="cancelProductForm()">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Product</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- END NEW -->
+        
+        <!-- Add Supplier Form -->
+        <div id="addSupplierForm" class="content-container hidden">
+            <h2 class="content-title">Add New Supplier</h2>
+            
+            <form id="supplierForm">
+                <div class="form-group">
+                    <label for="supplierName">Supplier Name</label>
+                    <input type="text" id="supplierName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="supplierLocation">Location</label>
+                    <input type="text" id="supplierLocation" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="contactEmail">Email</label>
+                    <input type="email" id="contactEmail" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="products">Products</label>
+                    <textarea id="products" rows="3"></textarea>
+                    <small>Enter products separated by commas</small>
+                </div>
+                
+                <div class="text-right">
+                    <button type="button" class="btn btn-danger" onclick="cancelForm()">Cancel</button>
+                    <button type="submit" class="btn btn-primary" onclick="saveSupplier(event)">Save Supplier</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- User Section -->
+    <div id="userSection" class="hidden">
+        <div id="userListView" class="content-container">
+            <h2 class="content-title">List of Users</h2>
+            
+            <table id="usersTable">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>NAME</th>
+                        <th>USERNAME</th>
+                        <th>ROLE</th>
+                        <th>ACTION</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- User data will be added here by JavaScript -->
+                </tbody>
+            </table>
+            
+            <div class="text-right">
+                <span id="userCount">0 USERS</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- User Modal -->
+<div id="userModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 id="modalTitle">Add User</h2>
+        <form id="userForm">
+            <input type="hidden" id="editIndex">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" required>
+            </div>
+            <div class="form-group">
+                <label for="role">Role:</label>
+                <select id="role" required>
+                    <option value="Admin">Admin</option>
+                    <option value="Staff">Staff</option>
+                </select>
+            </div>
+            <div class="text-right">
+                <button type="button" class="btn btn-danger" onclick="closeModalFunc()">Cancel</button>
+                <button type="submit" class="btn btn-primary">Save User</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Load JavaScript files -->
+<script src="indexAddSupplier.js"></script>
+<script src="../Products/products.js"></script>
+<script src="../Products/main.js"></script>
+<script src="../Users/users.js"></script>
+<script src="suppliers.js"></script>
+<script src="../dashboard/dashboard.js"></script>
+<script src="../Reports/reports.js"></script>
+<script>
+    // Show the logged-in username in the sidebar
+    document.addEventListener("DOMContentLoaded", function () {
+        const username = localStorage.getItem("username") || "User";
+        document.getElementById("sidebarUsername").textContent = username;
+    });
+</script>
+
+</body>
+</html>
