@@ -87,10 +87,8 @@ Open `index.html` in your browser.
   
 ## 👥 Group Members    
   
-- **Harvey Gabriele S. Yase**  - Backend for Supplier, Purchase Order, Users, Coded Supplier and Purchase Order logic, Troubleshooting/Debugging  
-- **Neji Cedric A. Tiu**  
-- **Elcris Jhon Razonable**  
-- **Louise Gabrielle Arispe**  
+- **Harvey Gabriele S. Yase**    
+-  
   
 ---
   
