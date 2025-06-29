@@ -88,7 +88,8 @@ Open `index.html` in your browser.
 ## 👥 Group Members    
   
 - **Harvey Gabriele S. Yase**    
--  
+- **Ethan Luke C. Gonzales** 
+- **Vinz Waldheim M. Villarin**
   
 ---
   
