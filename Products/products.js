@@ -156,6 +156,8 @@ function renderOrderTable() {
             <td>
                 <button class="btn btn-edit action-btn" onclick="receiveOrder(${order.id})">Receive</button>
                 <button class="btn btn-danger action-btn" onclick="cancelOrder(${order.id})">Cancel</button>
+                <button class="btn btn-danger action-btn" onclick="deleteOrder(${order.id})">Delete</button>
+
             </td>
         `;
         tbody.appendChild(row);
@@ -205,6 +207,29 @@ async function cancelOrder(id) {
         console.error('Failed to update order:', error);
       }
     }
+  }
+}
+
+// Delete order
+async function deleteOrder(id) {
+  if (!confirm('Are you sure you want to permanently delete this order?')) return;
+
+  try {
+    const response = await fetch(`http://localhost:3000/api/purchaseOrders/${id}`, {
+      method: 'DELETE'
+    });
+
+    if (!response.ok) {
+      const errText = await response.text();
+      throw new Error(errText || 'Failed to delete');
+    }
+
+    alert('Order deleted successfully!');
+    await loadOrdersFromAPI(); // Refresh data
+    renderOrderTable();        // Re-render the table
+  } catch (error) {
+    console.error('❌ Failed to delete order:', error);
+    alert('Error deleting order: ' + error.message);
   }
 }
 
