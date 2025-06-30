@@ -2,8 +2,6 @@
 
 A web-based Inventory Management System developed for academic and small business purposes. It features complete CRUD functionalities, a user authentication system with role-based access control, and organized tabs for managing suppliers, purchase orders, and users.
 
-## 🌐 Live Demo & Presentation
-📌 *Add your presentation link and demo video link here*
 
 ---
 
