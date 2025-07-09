@@ -159,17 +159,10 @@
     align-items: center;
     padding: 0 20px;
     height: 60px;
-    background-color: #51b15e83;
+    background-color: #498149;
     border-radius: 5px;
     margin-bottom: 20px;
 }
-
-
-
-
-
-
-
 
 /* ===== TABLE STYLES ===== */
 table {
@@ -231,7 +224,7 @@ input, select, textarea {
 
 
 .btn-primary {
-    background-color: #15a829;
+    background-color: #385e38;
 }
 
 

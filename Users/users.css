@@ -25,13 +25,14 @@
  
   table, th, td {
     border: solid #306630;
-    background-color: #54b454;
+    background-color: #ffecec;
 
   }
  
   th, td {
     padding: 10px;
     text-align: left;
+    color: black;
   }
  
   .modal {
