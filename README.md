@@ -54,34 +54,46 @@ inventory-management-system/
 - **Update**: Edit suppliers and user roles  
 - **Delete**: Remove suppliers and users  
   
---- 
+# 🚀 Getting Started   
 
-## 🚀 Getting Started  
+### 1. Clone the repository      
+    
+git clone https://github.com/harveyyase/inventory-management-IM2.git    
+2. Navigate to the backend folder  
+bash  
+Copy  
+Edit  
+cd inventory-management-IM2/supplier-backend    
+3. Install dependencies  
+bash  
+Copy  
+Edit  
+npm install    
+4. Install ODBC for SQL Server (Required for Database Access)  
+Download and install the ODBC Driver 18 for SQL Server:  
+👉 https://learn.microsoft.com/en-us/sql/connect/odbc/download-odbc-driver-for-sql-server  
   
-### 1. Clone the repository  
-```bash  
-git clone https://github.com/harveyyase/inventory-management-IM2.git  
-```  
- 
-### 2. Navigate to the backend folder  
-```bash  
-cd inventory-management-system-frontend/supplier-backend  
-```    
+5. Configure Firewall Access (Azure SQL Database)  
+Ensure your current public IP is whitelisted in the Azure SQL Server firewall settings.  
   
-### 3. Install dependencies  
-```bash  
-npm install  
-```  
+If you're working on a school or company network and get a timeout, try using a hotspot or ensure port 1433 is open.  
   
-### 4. Start the server  
-```bash  
-node server.js  
-```  
+6. Test Database Connection  
+Run the following script to test Azure database access:  
   
-### 5. Open the system  
-Open `index.html` in your browser.  
+bash  
+Copy  
+Edit  
+node database-access.js    
+✅ If successful, it will log the first 5 rows from the Suppliers table.    
   
----
+7. Start the API Server    
+bash  
+Copy  
+Edit  
+node server.js    
+8. Open the System  
+Open index.html from the frontend folder in your browser.  
   
 ## 👥 Group Members    
   
