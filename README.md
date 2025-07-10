@@ -54,53 +54,58 @@ inventory-management-system/
 - **Update**: Edit suppliers and user roles  
 - **Delete**: Remove suppliers and users  
   
-# 🚀 Getting Started   
+# 🚀 Getting Started
 
-### 1. Clone the repository      
-    
-git clone https://github.com/harveyyase/inventory-management-IM2.git    
-2. Navigate to the backend folder  
-bash  
-Copy  
-Edit  
-cd inventory-management-IM2/supplier-backend    
-3. Install dependencies  
-bash  
-Copy  
-Edit  
-npm install    
-4. Install ODBC for SQL Server (Required for Database Access)  
-Download and install the ODBC Driver 18 for SQL Server:  
-👉 https://learn.microsoft.com/en-us/sql/connect/odbc/download-odbc-driver-for-sql-server  
-  
-5. Configure Firewall Access (Azure SQL Database)  
-Ensure your current public IP is whitelisted in the Azure SQL Server firewall settings.  
-  
-If you're working on a school or company network and get a timeout, try using a hotspot or ensure port 1433 is open.  
-  
-6. Test Database Connection  
+### 1. Clone the repository  
+```bash
+git clone https://github.com/harveyyase/inventory-management-IM2.git
+```
+
+### 2. Navigate to the backend folder  
+```bash
+cd inventory-management-IM2/supplier-backend
+```
+
+### 3. Install dependencies  
+```bash
+npm install
+```
+
+### 4. Install ODBC for SQL Server (Required for Database Access)  
+Download and install the **ODBC Driver 18 for SQL Server**:  
+👉 https://learn.microsoft.com/en-us/sql/connect/odbc/download-odbc-driver-for-sql-server
+
+### 5. Configure Firewall Access (Azure SQL Database)  
+- Make sure your current **public IP** is whitelisted in your Azure SQL Server firewall settings.  
+- If you're on a school or company network and get a timeout, try switching to a **hotspot** or ensure **port 1433** is open for outbound traffic.
+
+### 6. Test Database Connection  
 Run the following script to test Azure database access:  
-  
-bash  
-Copy  
-Edit  
-node database-access.js    
-✅ If successful, it will log the first 5 rows from the Suppliers table.    
-  
-7. Start the API Server    
-bash  
-Copy  
-Edit  
-node server.js    
-8. Open the System  
-Open index.html from the frontend folder in your browser.  
-  
-## 👥 Group Members    
-  
-- **Harvey Gabriele S. Yase**    
-- **Ethan Luke C. Gonzales** 
+```bash
+node database-access.js
+```
+✅ If successful, it will log the first 5 rows from the `Suppliers` table.
+
+### 7. Start the API Server  
+```bash
+node server.js
+```
+
+### 8. Open the System  
+Open the `index.html` file located in the frontend folder using your browser.
+
+---
+
+## 👥 Group Members
+
+- **Harvey Gabriele S. Yase**  
+- **Ethan Luke C. Gonzales**  
 - **Vinz Waldheim M. Villarin**
-  
+
+---
+
+> 💡 Tip: You can also add `"start": "node server.js"` in your `package.json` scripts section so you can just run `npm start` to launch the backend.
+
 ---
   
 ## 📷 Screenshots  
