@@ -1,0 +1,171 @@
+*,*::before,*::after{box-sizing:border-box}body,h1,h2,h3,h4,p,figure,blockquote,dl,dd{margin:0}ul[role="list"],ol[role="list"]{list-style:none}html:focus-within{scroll-behavior:smooth}body{min-height:100vh;text-rendering:optimizeSpeed;line-height:1.5}a:not([class]){text-decoration-skip-ink:auto}img,picture{max-width:100%;display:block}input,button,textarea,select{font:inherit}@media(prefers-reduced-motion:reduce){html:focus-within{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+
+body#LoginBody{
+    background: url('../images/inventory-vs-stock-.webp') no-repeat center center fixed;
+    background-size: cover;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+div.loginHeader{
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+div.loginHeader h1{
+    color: lightgreen;
+    font-size: 100px;
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+div.loginHeader p{
+    color: #a4edc8;
+    font-size: 50px;
+    margin: 0px;
+    text-transform: uppercase;
+    display: inline-block;
+}
+div.loginHeader p:after{
+    content: '';
+    display: block;
+    height: 5px;
+    background: #a4edc8;
+    margin: 0 auto;
+}
+
+div.LoginBody form{
+    margin: 0 auto;
+    width: 450px;
+    background: rgba(0, 0, 0, .5);
+    padding: 50px;
+    border: 2px solid white;
+    border-radius: 8px;
+}
+
+div.LoginInputContainer{
+    margin-top: 30px;
+}
+
+div.LoginInputContainer label{
+    display: block;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+div.LoginInputContainer input{
+    height: 30px;
+    width: 100%;
+    border: 2px solid #a4edc8;
+    font-size: 20px;
+    padding: 5px;
+    text-align: center;
+    font-style: italic;
+}
+
+div.loginbuttoncontainer{
+    margin-top: 50px;
+    text-align: center;
+}
+
+div.loginbuttoncontainer button{
+    font-size: 30px;
+    padding: 10px 40px;
+    background: #47d68d;
+    border: none;
+    color: white;
+}
+
+div.header{
+    width: 100%;
+    height: 20px;
+    background: #a4edc8;
+}
+
+div.banner{
+    background: url('../images/PXL_20211217_004316669_1.webp') no-repeat center center fixed;
+    background-size: cover;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+div.homepageContainer{
+    width: 100%;
+    max-width: 900px;
+    /*height: 80vh;*/
+    margin: 0 auto;
+}
+div.bannerHeader h1{
+    font-size: 100px;
+    color: #47d68d;
+    line-height: 100%;
+}
+div.bannerHeader p{
+    font-size: 40px;
+    color: #47d68d;
+    text-transform: uppercase;
+    margin-top: -10px;
+}
+p.bannerTagLine{
+    margin-top: 20px;
+    font-size: 25px;
+    color: white;
+}
+div.bannerIcons{
+    margin-top: 150px;
+}
+div.bannerIcons a{
+    font-size: 25px;
+    margin-left: 40px;
+    padding: 7px 15px;
+    background: rgba(0, 0, 0, .5);
+    color: #fff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+}
+
+div.bannerIcons a:first-child{
+    margin-left: 0px;
+}
+
+div.bannerIcons a:hover{
+    color: #fff;
+    font-size: 25px;
+    background: palevioletred;
+    transition: .5s all;
+}
+
+div.homepageFeatures{
+    display: flex;
+    flex-direction: row;
+}
+div.homepageFeature{
+    padding: 10px 20px;
+    text-align: center;
+}
+div.homepageFeature span.featureIcon{
+    height: 80px;
+    width: 80px;
+    font-size: 50px;
+    display: inline-block;
+    background: #a4edc8;
+    color: black;
+    /*padding-left: 15px;*/
+    padding-top: 5px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+div.homepageFeature h3.featureIcon{
+    margin-bottom: 20px;
+}
+
+div.homepageFeature p.featureDescription{
+    color: #848484;
+}
