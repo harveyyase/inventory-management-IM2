@@ -44,7 +44,22 @@
                 <i>📄</i> REPORTS
             </a>
         </li>
-            
+
+        <!--  Product Menu Item -->
+        <li class="menu-item">
+            <a href="#" class="menu-link" onclick="toggleSubmenu(this); toggleSection('productListView', 'supplierSection', 'purchaseOrderSection', 'userSection')">
+                <i>📦</i> PRODUCT
+                <span class="arrow">▸</span>
+            </a>
+            <div class="submenu">
+                <a href="#" class="submenu-item" onclick="showProductList(event)">
+                    <i>👁️</i> View Products
+                </a>
+                <a href="#" class="submenu-item" onclick="showAddProductForm(event)">
+                    <i>➕</i> Add Product
+                </a>
+            </div>
+        </li>
 
        
         <!-- Supplier Menu Item -->
@@ -136,15 +151,15 @@
        
         <!-- Product Menu Item -->
         <li class="menu-item">
-            <a href="#" class="menu-link" onclick="toggleSubmenu(this); toggleSection('productSection', 'supplierSection', 'purchaseOrderSection', 'userSection', 'dashboardSection')">
+            <a href="#" class="menu-link" onclick="toggleSubmenu(this); toggleSection('productSection', 'dashboardSection', 'supplierSection', 'purchaseOrderSection', 'userSection', 'reportsSection')">
                 <i>📦</i> PRODUCT
                 <span class="arrow">▸</span>
             </a>
             <div class="submenu">
-                <a href="#" class="submenu-item" onclick="showProductList(event)">
+                <a href="#" id="view-product" class="submenu-item" onclick="showProductList(event)">
                     <i>👁️</i> View Product
                 </a>
-                <a href="#" class="submenu-item" onclick="showAddProductForm(event)">
+                <a href="#" id="add-product" class="submenu-item" onclick="showAddProductForm(event)">
                     <i>➕</i> Add Product
                 </a>
             </div>
@@ -319,38 +334,7 @@
             </form>
         </div>
     </div>
-    
-    <!-- Supplier Section -->
-    <div id="supplierSection" class="hidden">
-        <!-- Supplier List View -->
-        <div id="supplierListView" class="content-container">
-            <h2 class="content-title">List of Suppliers</h2>
-            
-            <table id="supplierTable">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>SUPPLIER NAME</th>
-                        <th>SUPPLIER LOCATION</th>
-                        <th>CONTACT DETAILS</th>
-                        <th>PRODUCTS</th>
-                        <th>CREATED BY</th>
-                        <th>CREATED AT</th>
-                        <th>UPDATED AT</th>
-                        <th>ACTION</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Supplier data will be added here by JavaScript -->
-                </tbody>
-            </table>
-            
-            <div class="text-right">
-                <span id="supplierCount">0 SUPPLIERS</span>
-            </div>
-        </div>
-
-        <!-- NEW: Product Section -->
+         <!-- NEW: Product Section -->
     <div id="productSection" class="hidden">
         <!-- Product List View -->
         <div id="productListView" class="content-container">
@@ -363,8 +347,6 @@
                         <th>CATEGORY</th>
                         <th>SUPPLIER</th>
                         <th>QUANTITY</th>
-                        <th>CREATED BY</th>
-                        <th>CREATED AT</th>
                         <th>ACTION</th>
                     </tr>
                 </thead>
@@ -373,7 +355,7 @@
                 </tbody>
             </table>
             <div class="text-right">
-                <span id="productCount">0 PRODUCTS</span>
+                <span id="productCount">PRODUCTS</span>
             </div>
         </div>
 
@@ -405,6 +387,35 @@
         </div>
     </div>
     <!-- END NEW -->
+    <!-- Supplier Section -->
+    <div id="supplierSection" class="hidden">
+        <!-- Supplier List View -->
+        <div id="supplierListView" class="content-container">
+            <h2 class="content-title">List of Suppliers</h2>
+            
+            <table id="supplierTable">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>SUPPLIER NAME</th>
+                        <th>SUPPLIER LOCATION</th>
+                        <th>CONTACT DETAILS</th>
+                        <th>PRODUCTS</th>
+                        <th>CREATED BY</th>
+                        <th>CREATED AT</th>
+                        <th>UPDATED AT</th>
+                        <th>ACTION</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Supplier data will be added here by JavaScript -->
+                </tbody>
+            </table>
+            
+            <div class="text-right">
+                <span id="supplierCount">0 SUPPLIERS</span>
+            </div>
+        </div>
         
         <!-- Add Supplier Form -->
         <div id="addSupplierForm" class="content-container hidden">

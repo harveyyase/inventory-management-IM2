@@ -93,7 +93,6 @@ Open `index.html` in your browser.
   
 ## 📷 Screenshots  
   
-
 - Login Page
 ---------------------------------------------------------------------------------------  
 ![image](https://github.com/user-attachments/assets/f6a89bb7-6dab-41cc-a392-ef32ef60765a)  
