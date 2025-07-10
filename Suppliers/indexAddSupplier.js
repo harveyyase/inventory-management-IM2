@@ -291,62 +291,6 @@ function toggleSection(showId, ...hideIds) {
 
     const showEl = document.getElementById(showId);
     if (showEl) showEl.classList.remove('hidden');
-
-    if (showId === 'productSection') {
-        showProductList(); // default view for products tab
-    }
-}
-
-// Show product list view inside productSection
-function showProductList(event) {
-    if (event) event.preventDefault();
-
-    document.getElementById('productSection').classList.remove('hidden');
-    document.getElementById('productListView').classList.remove('hidden');
-    document.getElementById('addProductForm').classList.add('hidden');
-    // Hide other related forms if any...
-
-    // Update active menu link and submenu item
-    document.querySelectorAll('.menu-link').forEach(link => link.classList.remove('active-menu'));
-    document.querySelector('.menu-item:nth-child(3) > .menu-link').classList.add('active-menu');
-
-    const productSubItems = document.querySelectorAll('.menu-item:nth-child(3) .submenu-item');
-    productSubItems.forEach(item => item.classList.remove('active'));
-    if (event?.target) {
-        event.target.classList.add('active');
-    } else {
-        productSubItems[0]?.classList.add('active'); // View Product by default
-    }
-
-    renderProductTable(); // assuming you have this function
-}
-
-// Show add product form inside productSection
-function showAddProductForm(event) {
-    if (event) event.preventDefault();
-
-    document.getElementById('productSection').classList.remove('hidden');
-    document.getElementById('productListView').classList.add('hidden');
-    document.getElementById('addProductForm').classList.remove('hidden');
-
-    // Update active menu link and submenu item
-    document.querySelectorAll('.menu-link').forEach(link => link.classList.remove('active-menu'));
-    document.querySelector('.menu-item:nth-child(3) > .menu-link').classList.add('active-menu');
-
-    const productSubItems = document.querySelectorAll('.menu-item:nth-child(3) .submenu-item');
-    productSubItems.forEach(item => item.classList.remove('active'));
-    if (event?.target) {
-        event.target.classList.add('active');
-    } else {
-        productSubItems[1]?.classList.add('active'); // Add Product submenu by default
-    }
-
-    document.getElementById('productForm')?.reset(); // Reset form if needed
-}
-
-// Example placeholder for rendering product table (you probably have this already)
-function renderProductTable() {
-    // your existing code here
 }
 
 // On page load, you may want to initialize

@@ -4,10 +4,18 @@
 
 function showProductList(event) {
     if (event) event.preventDefault();
-    document.getElementById('supplierSection').classList.add('hidden');
-    document.getElementById('purchaseOrderSection').classList.add('hidden');
+    document.getElementById('productSection').classList.remove('hidden');
     document.getElementById('productListView').classList.remove('hidden');
     document.getElementById('addProductForm').classList.add('hidden');
+
+    // Hide other sections
+    document.getElementById('supplierSection').classList.add('hidden');
+    document.getElementById('purchaseOrderSection').classList.add('hidden');
+    document.getElementById('dashboardSection').classList.add('hidden');
+    document.getElementById('userSection').classList.add('hidden');
+    document.getElementById('reportsSection').classList.add('hidden');
+
+    // Menu active states
     document.querySelectorAll('.menu-link').forEach(link => link.classList.remove('active-menu'));
     document.querySelector('.menu-item:nth-child(3) .menu-link').classList.add('active-menu');
 
@@ -21,10 +29,18 @@ function showProductList(event) {
 
 function showAddProductForm(event) {
     if (event) event.preventDefault();
-    document.getElementById('supplierSection').classList.add('hidden');
-    document.getElementById('purchaseOrderSection').classList.add('hidden');
+    document.getElementById('productSection').classList.remove('hidden');
     document.getElementById('productListView').classList.add('hidden');
     document.getElementById('addProductForm').classList.remove('hidden');
+
+    // Hide other sections
+    document.getElementById('supplierSection').classList.add('hidden');
+    document.getElementById('purchaseOrderSection').classList.add('hidden');
+    document.getElementById('dashboardSection').classList.add('hidden');
+    document.getElementById('userSection').classList.add('hidden');
+    document.getElementById('reportsSection').classList.add('hidden');
+
+    // Menu active states
     document.querySelectorAll('.menu-link').forEach(link => link.classList.remove('active-menu'));
     document.querySelector('.menu-item:nth-child(3) .menu-link').classList.add('active-menu');
 
@@ -34,25 +50,88 @@ function showAddProductForm(event) {
     else productMenuItems[1]?.classList.add('active');
 
     document.getElementById('productForm')?.reset();
+
 }
 
 // Dummy product table renderer (replace with real logic)
 function renderProductTable() {
-    const container = document.getElementById('productTableContainer');
-    if (!container) return;
-    container.innerHTML = '<p>Product list goes here...</p>';
+    const tbody = document.querySelector('#productTable tbody');
+    if (!tbody) return;
+
+    const products = loadProductsFromLocalStorage(); // ✅ load from localStorage
+
+    tbody.innerHTML = '';
+    products.forEach((p, index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${index + 1}</td>
+            <td>${p.name}</td>
+            <td>${p.category}</td>
+            <td>${p.supplier}</td>
+            <td>${p.quantity}</td>
+            <td><button class="btn btn-edit">Edit</button></td>
+        `;
+        tbody.appendChild(row);
+    });
+
+    const count = document.getElementById('productCount');
+    if (count) {
+        count.textContent = `${products.length} PRODUCTS`;
+    }
+
+    console.log("✅ Rendered", products.length, "products.");
+}
+
+
+function saveProductsToLocalStorage(products) {
+    localStorage.setItem('products', JSON.stringify(products));
+}
+
+function loadProductsFromLocalStorage() {
+    const productsJSON = localStorage.getItem('products');
+    return productsJSON ? JSON.parse(productsJSON) : [];
 }
 
 // Bind navigation on page load
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('view-product')?.addEventListener('click', showProductList);
     document.getElementById('add-product')?.addEventListener('click', showAddProductForm);
-    loadSuppliersFromAPI();
-    loadOrdersFromAPI();
-    // loadProductsFromLocalStorage();
+
+    const products = loadProductsFromLocalStorage();
+    renderProductTable(products); 
+    //loadSuppliersFromAPI();
+    //loadOrdersFromAPI();
+    //loadProductsFromLocalStorage();
 });
 
 
+document.getElementById('addProductForm')?.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById('productName').value;
+    const category = document.getElementById('productCategory').value;
+    const supplier = document.getElementById('productSupplier').value;
+    const quantity = parseInt(document.getElementById('productQuantity').value);
+    const createdBy = localStorage.getItem('username') || 'Admin';
+    const createdAt = new Date().toLocaleString();
+
+    const products = loadProductsFromLocalStorage();
+    const newProduct = {
+        id: Date.now(),
+        name,
+        category,
+        supplier,
+        quantity,
+    };
+
+    products.push(newProduct);
+    saveProductsToLocalStorage(products);
+
+    renderProductTable(); // ✅ no need to pass, it loads from storage now
+
+    this.reset();
+    toggleSection('productListView', 'addProductForm'); // go back to list view
+});
 
 
 
