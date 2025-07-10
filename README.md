@@ -92,7 +92,7 @@ node server.js
 ```
 
 ### 8. Open the System  
-Open the `index.html` file located in the frontend folder using your browser.
+Open the `register.html` file located in the frontend folder using your browser.
 
 ---
 
