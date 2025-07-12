@@ -12,10 +12,18 @@ body{
 div.loginHeader{
     text-align: center;
     margin-bottom: 60px;
+    background-color: rgba(53, 49, 49, 0.61);
+    margin-top: 5%;
+    margin-left: 20%;
+    margin-right: 20%;
+    outline: solid;
+    outline-color: white;
+    border-radius: 15px;
 }
 
+
 div.loginHeader h1{
-    color: lightgreen;
+    color: white;
     font-size: 100px;
     margin: 0px;
     padding: 0px;
@@ -23,18 +31,11 @@ div.loginHeader h1{
 }
 
 div.loginHeader p{
-    color: #a4edc8;
+    color: white;
     font-size: 50px;
     margin: 0px;
     text-transform: uppercase;
     display: inline-block;
-}
-div.loginHeader p:after{
-    content: '';
-    display: block;
-    height: 5px;
-    background: #a4edc8;
-    margin: 0 auto;
 }
 
 div.LoginBody form{
@@ -61,7 +62,8 @@ div.LoginInputContainer label{
 div.LoginInputContainer input{
     height: 30px;
     width: 100%;
-    border: 2px solid #a4edc8;
+    border: 2px solid #20794c;
+    border-radius: 2px;
     font-size: 20px;
     padding: 5px;
     text-align: center;
@@ -76,7 +78,8 @@ div.loginbuttoncontainer{
 div.loginbuttoncontainer button{
     font-size: 30px;
     padding: 10px 40px;
-    background: #47d68d;
+    background: #20794c;
+    border-radius: 5px;
     border: none;
     color: white;
 }
