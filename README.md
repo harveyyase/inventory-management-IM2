@@ -109,7 +109,51 @@ Open the `register.html` file located in the frontend folder using your browser.
 ---
   
 ## 📷 Screenshots  
-  
+
+- LOGIN PAGE 
+
+<img width="1599" height="899" alt="Image" src="https://github.com/user-attachments/assets/f7084864-893a-4a9e-b274-1b9d464966f4" />
+
+---------------------------------------------------------------------------------------  
+- DASHBOARD
+- 
+<img width="1539" height="785" alt="Image" src="https://github.com/user-attachments/assets/3bae9378-5dae-4e35-bc22-0014fb0ec2b1" />
+
+---------------------------------------------------------------------------------------  
+-Report Management
+
+<img width="1537" height="787" alt="Image" src="https://github.com/user-attachments/assets/c3e437e1-5f20-4b10-bc52-ad38420dc2bc" />
+
+---------------------------------------------------------------------------------------  
+- List of Products
+
+<img width="1536" height="786" alt="Image" src="https://github.com/user-attachments/assets/c630ec37-312f-4942-80de-5c9f0e189e4b" />
+
+---------------------------------------------------------------------------------------  
+- List of Suppliers
+
+<img width="1538" height="785" alt="Image" src="https://github.com/user-attachments/assets/8492794a-9dd3-4900-9541-e105e65758ef" />
+
+---------------------------------------------------------------------------------------  
+- Create Purchase
+
+<img width="1536" height="786" alt="Image" src="https://github.com/user-attachments/assets/71cefc0f-b564-4876-9167-fd2617d4eb64" />
+
+---------------------------------------------------------------------------------------  
+- Supplier Management
+
+<img width="1537" height="787" alt="Image" src="https://github.com/user-attachments/assets/845b07a8-50fc-4ffa-a5fd-052c074206ed" />
+
+---------------------------------------------------------------------------------------  
+- User management
+
+<img width="1536" height="785" alt="Image" src="https://github.com/user-attachments/assets/0b2cb0eb-10ac-40ac-b513-66de6ea21b94" />
+
+---------------------------------------------------------------------------------------  
+ADD USERS
+
+<img width="1534" height="784" alt="Image" src="https://github.com/user-attachments/assets/007f5428-c345-4345-9312-0065e66b4ce1" />
+
 - Login Page
 ---------------------------------------------------------------------------------------  
 ![image](https://github.com/user-attachments/assets/f6a89bb7-6dab-41cc-a392-ef32ef60765a)  
@@ -124,4 +168,3 @@ Open the `register.html` file located in the frontend folder using your browser.
  ![image](https://github.com/user-attachments/assets/7b934a5d-7c9b-4e6c-9d6e-1a5b9a703d76)    
 ---------------------------------------------------------------------------------------      
 
-# Finals-UPDATED
