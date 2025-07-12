@@ -116,11 +116,11 @@ Open the `register.html` file located in the frontend folder using your browser.
 
 ---------------------------------------------------------------------------------------  
 - DASHBOARD
-- 
+  
 <img width="1539" height="785" alt="Image" src="https://github.com/user-attachments/assets/3bae9378-5dae-4e35-bc22-0014fb0ec2b1" />
 
 ---------------------------------------------------------------------------------------  
--Report Management
+- Report Management
 
 <img width="1537" height="787" alt="Image" src="https://github.com/user-attachments/assets/c3e437e1-5f20-4b10-bc52-ad38420dc2bc" />
 
@@ -149,22 +149,7 @@ Open the `register.html` file located in the frontend folder using your browser.
 
 <img width="1536" height="785" alt="Image" src="https://github.com/user-attachments/assets/0b2cb0eb-10ac-40ac-b513-66de6ea21b94" />
 
----------------------------------------------------------------------------------------  
-ADD USERS
-
 <img width="1534" height="784" alt="Image" src="https://github.com/user-attachments/assets/007f5428-c345-4345-9312-0065e66b4ce1" />
 
-- Login Page
 ---------------------------------------------------------------------------------------  
-![image](https://github.com/user-attachments/assets/f6a89bb7-6dab-41cc-a392-ef32ef60765a)  
----------------------------------------------------------------------------------------   
-- Supplier Page (Add + View)  
-- Purchase Order Page
----------------------------------------------------------------------------------------     
- ![image](https://github.com/user-attachments/assets/1a80bd57-a474-4529-b809-5f512138fd68)  
----------------------------------------------------------------------------------------   
-- User Management Tab
----------------------------------------------------------------------------------------       
- ![image](https://github.com/user-attachments/assets/7b934a5d-7c9b-4e6c-9d6e-1a5b9a703d76)    
----------------------------------------------------------------------------------------      
 
