@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "mssql": "^11.0.1"
+    "mssql": "^11.0.1",
+    "odbc": "^2.4.9"
   }
 }

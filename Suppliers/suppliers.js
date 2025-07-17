@@ -130,12 +130,10 @@ function renderSupplierTable() {
     const isAdmin = (localStorage.getItem('userRole') || '').toLowerCase() === 'admin';
 
     suppliers.forEach((supplier, index) => {
-        // Format products as bullet list if there are any
         let productsHTML = '';
         if (supplier.products) {
             const productsList = supplier.products.split(',').map(p => p.trim());
-            productsHTML = productsList.map(product => `<li>${product}</li>`).join('');
-            productsHTML = `<ul>${productsHTML}</ul>`;
+            productsHTML = productsList.join(', ');
         }
 
         const row = document.createElement('tr');
@@ -145,7 +143,6 @@ function renderSupplierTable() {
             <td>${supplier.location}</td>
             <td>${supplier.email}</td>
             <td>${productsHTML}</td>
-            <td>${supplier.createdBy || ''}</td>
             <td>${supplier.createdAt || ''}</td>
             <td>${supplier.updatedAt || ''}</td>
             <td>

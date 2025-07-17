@@ -44,6 +44,7 @@ function renderUsers() {
     .catch(err => console.error('Failed to fetch users:', err));
 }
 
+
 // Open modal for adding or editing a user
 function openModal(edit = false, index = null) {
     const userModal = document.getElementById('userModal');
@@ -88,6 +89,7 @@ document.addEventListener('click', function(event) {
         closeModalFunc();
     }
 });
+
 
 // Save user (add new or update existing)
 function saveUser(e) {
@@ -213,3 +215,10 @@ window.addEventListener('click', (e) => {
 document.addEventListener('DOMContentLoaded', () => {
   renderUsers();
 });
+
+
+
+function logout() {
+
+    window.location.href = '../index.html';
+}

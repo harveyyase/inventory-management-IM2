@@ -69,7 +69,7 @@ function renderProductTable() {
             <td>${p.category}</td>
             <td>${p.supplier}</td>
             <td>${p.quantity}</td>
-            <td><button class="btn btn-edit">Edit</button></td>
+            <td><button class="btn btn-edit" onclick="deleteProduct(${p.name}")>Edit</button></td>
         `;
         tbody.appendChild(row);
     });
@@ -130,9 +130,14 @@ document.getElementById('addProductForm')?.addEventListener('submit', function (
     renderProductTable(); // ✅ no need to pass, it loads from storage now
 
     this.reset();
+
+   
     toggleSection('productListView', 'addProductForm'); // go back to list view
 });
 
+function notifyUser(){
+    alert('Product Added!');
+}
 
 
 async function submitOrder(e) {

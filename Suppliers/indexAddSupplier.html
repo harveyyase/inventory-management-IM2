@@ -119,7 +119,7 @@
         <button id="menu-toggle">☰</button>
         <div>
             
-            <button class="btn">Log-out</button>
+            <button class="btn" onclick="logout()">Log-out</button>
         </div>
     </div>
    <div class="sidebar">
@@ -274,7 +274,6 @@
                         <th>STATUS</th>
                         <th>ORDERED BY</th>
                         <th>CREATED DATE</th>
-                        <th>ACTION</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -381,7 +380,7 @@
                 </div>
                 <div class="text-right">
                     <button type="button" class="btn btn-danger" onclick="cancelProductForm()">Cancel</button>
-                    <button type="submit" class="btn btn-primary">Save Product</button>
+                    <button type="submit" class="btn btn-primary" onclick="notifyUser()">Save Product</button>
                 </div>
             </form>
         </div>
@@ -401,7 +400,6 @@
                         <th>SUPPLIER LOCATION</th>
                         <th>CONTACT DETAILS</th>
                         <th>PRODUCTS</th>
-                        <th>CREATED BY</th>
                         <th>CREATED AT</th>
                         <th>UPDATED AT</th>
                         <th>ACTION</th>
