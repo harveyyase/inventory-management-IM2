@@ -157,4 +157,3 @@ Open the `register.html` file located in the frontend folder using your browser.
 
 ---------------------------------------------------------------------------------------  
 
->>>>>>> 20aecea13bec1be4ea86c5ef85c4ac2994a7fec2
